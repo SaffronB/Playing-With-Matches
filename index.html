@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="style.css">
 <head>
-	<title>The title of my page</title>
-  <style type="text/css">
-	div.number {
-    color: #AA3939;
-    font-size: 300px;
-    outline: bold;
-    margin-left: 600px;
-    margin-top: 200px;
-}
-	</style>
-</head>
+  <title>Playing With Matches</title>
+
+	</head>
+
 <body>
 	<div class="number">
     7
+  </div>
 
-	</div>
+
+
+
+<script type="text/javascript">
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var el = document.querySelector('.number');
+
+function updateHTML(){
+  el.innerHTML = getRandomIntInclusive(1,9);
+}
+updateHTML();
+
+  </script>
 </body>
 </html>
