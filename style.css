@@ -3,18 +3,19 @@ body{
   background-color: #FFA9A9;
 }
 
-
-
 .number {
   color: #B12929;
-  font-size: 300px;
+  font-size: 200px;
   outline: bold;
-  margin-left: 445px;
-  margin-top: 200px;
-  height: 400px;
-  width: 200px;
+  margin-left: 200px;
+  margin-top: 50px;
+  height: 200px;
+  width: 70px;
   background-color: #D46A6A;
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 25px;
+  padding-right: 50px;
   padding-top: 70px;
+  display: inline;
+  line-height: 200px;
+  text-align: center;
 }
