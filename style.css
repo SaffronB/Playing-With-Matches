@@ -1,85 +1,90 @@
-
-body{
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+body {
   background: url(http://i.imgur.com/S2qidKz.jpg);
   background-repeat: repeat;
-
-
+  font-family: 'Playfair Display', serif;
 }
-
-
-
+.name {
+  font-size: 100px;
+  margin-left: 150px;
+}
 .number {
   color: #B12929;
-  font-size: 150px;
+  font-size: 100px;
   outline: bold;
   margin-left: 10px;
-  height: 200px;
+  height: 150px;
   width: 50px;
   background-color: #D46A6A;
   padding-left: 50px;
   padding-right: 50px;
-  display: inline;
+  display: inline-block;
   text-align: center;
 }
-
 .row1 {
-  margin-top:20px;
+  margin-top: 5px;
   margin-left: 400px;
 }
-
 .row2 {
-margin-top: 10px;
-margin-left: 400px;
-
+  margin-top: 10px;
+  margin-left: 400px;
 }
-
 .row3 {
-margin-top: 10px;
-margin-left: 400px;
-
+  margin-top: 10px;
+  margin-left: 400px;
 }
-
 .highlight {
   color: #0E5342;
-  background-color:#6FA698;
+  background-color: #6FA698;
+}
+.highlightcolumn {
+  color: #0E419D;
+  background-color: #4574CB;
+}
+.highlightdiagonal {
+  color: #BF6B08;
+  background-color: #E99936;
 }
 
-
-
-
-
+.displayInfo {
+  background-color: #964B8A;
+  width: 200px;
+  height: 600px;
+  margin-left: 100px;
+  margin-top: 5px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+  float: left;
+}
 .displaybox {
-
-  margin-bottom:5px;
-  margin-top: 20px;
+  /*margin-bottom: 5px;*/
+  margin-top: 10px;
+  float:right;
   width: 500px;
-  height:150px;
+  height: 150px;
   background-color: #964B8A;
   text-align: center;
   font-size: 20px;
-
   line-height: 35px;
   border-radius: 10px;
-  display: inline-block;
+  /*display: inline-block;*/
   padding-left: 10px;
   padding-top: 30px;
-
-
-
-
+  margin-right: 350px;
+  /*margin-left: 100px;*/
 }
-
 .buttonstyle {
-  margin-left:350px;
-  margin-top: 30px;
-  width:200px;
-  height:100px;
-  background-color:#964B8A;
+  margin-left: 50px;
+  margin-top: 10px;
+  width: 200px;
+  height: 100px;
+  background-color: #964B8A;
   text-align: center;
   font-size: 20px;
   line-height: 100px;
   border-radius: 10px;
-  display: inline-block;
-  cursor: pointer; cursor: hand;
-
+  /*display: inline-block;*/
+  cursor: pointer;
+  cursor: hand;
 }

@@ -8,11 +8,10 @@ var numbers = document.querySelectorAll(".number");
 
 function updateHTML() {
   for (i = 0; i < numbers.length; i++) {
-    numbers[i].innerHTML = getRandomIntInclusive(1, 3);
+    numbers[i].innerHTML = getRandomIntInclusive(1, 9);
   }
 }
 updateHTML();
-
 
 var displayMessage = function(text) {
   var message = document.querySelector(".displaybox");
@@ -26,8 +25,7 @@ var matchedNumber = "";
 console.log(matchedNumber);
 
 
-
-function addHighlight(low, high) {
+function addHighlightToRow(low, high) {
   if (numbers[low].innerHTML === numbers[low + 1].innerHTML) {
     numbers[low].classList.add("highlight");
     numbers[low + 1].classList.add("highlight");
@@ -55,100 +53,114 @@ function isRowMatched(low, high) {
   }
   if (numbers[high].innerHTML === numbers[high - 1].innerHTML) {
     match = true;
-
   }
   return match;
 
 }
 
-addHighlight(0, 2);
-addHighlight(3, 5);
-addHighlight(6, 8);
+addHighlightToRow(0, 2);
+addHighlightToRow(3, 5);
+addHighlightToRow(6, 8);
 
 var matchRow1 = isRowMatched(0, 2);
 var matchRow2 = isRowMatched(3, 5);
 var matchRow3 = isRowMatched(6, 8);
 
 function generateRowMessage() {
-  var whatRows = 'A match has been found in';
+  var whatRows = "You've hit a match in";
+  var whatRowAddition = ' no rows';
+
   if (matchRow1) {
-    whatRows = whatRows + ' row 1';
+    whatRows = whatRows + ' row 1 ';
   }
   if (matchRow2) {
-    whatRows = whatRows + ' row 2';
+    whatRows = whatRows + ' row 2 ';
   }
   if (matchRow3) {
-    whatRows = whatRows + ' row 3';
+    whatRows = whatRows + ' row 3 ';
   }
   return whatRows;
 }
+
 var whatRows = generateRowMessage();
 
+function addHighlightToColoumn(a, b, c) {
+  if (numbers[a].innerHTML === numbers[b].innerHTML) {
+    numbers[a].classList.add("highlightcolumn");
+    numbers[b].classList.add("highlightcolumn");
+  }
+
+  if (numbers[b].innerHTML === numbers[c].innerHTML) {
+    numbers[b].classList.add("highlightcolumn");
+    numbers[c].classList.add("highlightcolumn");
+  }
+}
+
+function isColumnMatched(a, b, c) {
+  var match = false;
+  if (numbers[a].innerHTML === numbers[b].innerHTML) {
+    match = true;
+
+  }
+  if (numbers[b].innerHTML === numbers[c].innerHTML) {
+    match = true;
+
+  }
+  return match;
+
+}
+
+addHighlightToColoumn(0, 3, 6);
+addHighlightToColoumn(1, 4, 7);
+addHighlightToColoumn(2, 5, 8);
+
+var matchColumn1 = isColumnMatched(0, 3, 6);
+var matchColumn2 = isColumnMatched(1, 4, 7);
+var matchColumn3 = isColumnMatched(2, 5, 8);
+
+function generateColumnMessage() {
+  var whatColumn = "You've hit a match in";
+  if (matchColumn1) {
+    whatColumn = whatColumn + ' column 1 ';
+  }
+  if (matchColumn2) {
+    whatColumn = whatColumn + ' column 2 ';
+  }
+  if (matchColumn3) {
+    whatColumn = whatColumn + ' column 3 ';
+  }
+
+  return whatColumn;
+}
+
+var whatColumn = generateColumnMessage();
+
+function addHighlightToDiagonal(top, middle, bottom) {
+  if (numbers[top].innerHTML === numbers[middle].innerHTML) {
+    numbers[top].classList.add("highlightdiagonal");
+    numbers[middle].classList.add("highlightdiagonal");
+    matchedNumber = numbers[0].innerHTML;
+    msg = msg + matchedNumber + ' ';
+
+  }
+
+  if (numbers[middle].innerHTML === numbers[bottom].innerHTML) {
+    numbers[middle].classList.add("highlightdiagonal");
+    numbers[bottom].classList.add("highlightdiagonal");
+    matchedNumber = numbers[4].innerHTML;
+    console.log(matchedNumber);
+    msg = msg + matchedNumber + ' ';
+  }
+
+}
+
+addHighlightToDiagonal(0, 4, 8);
+addHighlightToDiagonal(2, 4, 6);
 
 
-
-displayMessage(whatNumbers + msg + "<br>" + whatRows + "<br>" + howManyMatches);
+displayMessage(whatNumbers + msg + "<br>" + whatRows + "<br>" + whatColumn + "<br>" + howManyMatches);
 
 
 function refreshbutton() {
   location.reload();
 }
-
-
-//
-// function displaywhichnumbers() {
-//   if (addHighlight(low,high)) {
-//     whatNumbers = whatNumbers + addHighlight(0, 2);
-
-// whatNumbers = whatNumbers + addHighlight(3,5);
-//     // whatNumbers = whatNumbers + addHighlight(6,8);
-//   }
-// }
-
-// function displaywhatrow() {
-//   if (matched) {
-//     if matchRow1 {
-//       whatRows = whatRows + "row 1";
-//     }
-//     if matchRow2 {
-//       whatRows = whatRows + "row 2";
-//     }
-//     if matchRow3 {
-//       whatRows = whatRows + "row 3";
-//     }
-//
-//   }
-// }
-
-
-
-
-
-
-// // displaywhatrow();
-// console.log(matched);
-// displaywhichnumbers();
-
-
-
-
-//
-// function displaywhatrow() {
-//   if (rowisMatched) {
-//     if (matchRow1) {
-//       whatRows = whatRows + " row 1";
-//       howManyMatches = howManyMatches + 1;
-//     }
-//     if (matchRow2) {
-//       whatRows = whatRows + " row 2";
-//       howManyMatches = howManyMatches + 1;
-//     }
-//     if (matchRow3) {
-//       whatRows = whatRows + " row 3";
-//       howManyMatches = howManyMatches + 1;
-//     }
-//
-// //   }
-// // }
-//
-// displaywhatrow();
